@@ -11,6 +11,26 @@
 
 ## Usage
 
+As per documentation Trello interprets the me in the place of a memberID as a reference to the user who is making the request based on the API token (remember, the API token belongs to a specific user).
+
+In order to find out your Member Id you can use the following function:
+
+```
+let member = await trello.getMember("me");
+```
+
+In order to find out the required Board Id use the following `curl` command:
+
+```
+curl -s "https://api.trello.com/1/members/me/boards?fields=name,id&key=$TRELLO_APP_KEY&token=$TRELLO_APP_TOKEN" | jq | less
+```
+
+In order to find out the required List Id use the following `curl` command:
+
+ ```
+curl -s "https://api.trello.com/1/boards/5bed79829f69ab780e67397b/lists?key=$TRELLO_APP_KEY&token=$TRELLO_APP_TOKEN" | jq | less
+```
+
 Install dependencies
 
 ```
@@ -31,3 +51,5 @@ Next, execute the command to read the environmental variables or set the variabl
 ```
 source ./trello.env
 ```
+
+If you're using AWS Lambda function with API Gateway, remember to change the Content-Type in Response Models for 200 GET Method from application/json to text/plain
