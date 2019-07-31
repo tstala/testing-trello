@@ -1,6 +1,6 @@
 # testing-trello
 
-`trello-retreive-card-names-async-await.js` - this application prints card names from specified board id and list id in the following format (it uses async/await functions):
+`trello-retrieve-card-names-async-await.js` - this application prints card names from specified board id and list id in the following format (it uses async/await functions):
 
 ```
 ===== Begin <ListId> List =====
